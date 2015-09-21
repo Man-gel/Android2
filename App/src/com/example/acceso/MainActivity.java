@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,6 +22,9 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		usuario = (EditText)findViewById(R.id.et_usuario);
 		contraseña = (EditText)findViewById(R.id.et_password);
+		usuario.requestFocus();
+		InputMethodManager input = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+		input.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
 	}
 
 	@Override
@@ -51,7 +55,6 @@ public class MainActivity extends Activity {
 			mostrarToast("Debe ingresar un nombre de usuario y una contraseña");
 			contraseña.setText("");
 			usuario.setText("");
-			usuario.requestFocus();
 			return;
 		}
 		if( !( user.equals("root") && pass.equals("admin")) )
@@ -59,13 +62,14 @@ public class MainActivity extends Activity {
 			mostrarToast("El nombre de usuario y/o la contraseña no son correctos");
 			contraseña.setText("");
 			usuario.setText("");
-			usuario.requestFocus();
 		}
 		else
 		{
 			contraseña.setText("");
 			usuario.setText("");
 			mostrarToast("Bienvenido "+user+"!");
+			InputMethodManager input = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+			input.hideSoftInputFromWindow(usuario.getWindowToken(),0);
 		}
 	}
 	
