@@ -1,5 +1,6 @@
 package com.example.acceso;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -47,12 +48,24 @@ public class MainActivity extends Activity {
 	public void validarUsuario(View v)
 	{
 		String user = usuario.getText().toString();
-		String pass = contraseña.getText().toString();
-		
-		
-	
+		String pass = contraseña.getText().toString();		
+		if(user.isEmpty() || pass.isEmpty())
+		{
+			mostrarToast("Debe ingresar un nombre de usuario y una contraseña");
+			contraseña.setText("");
+			usuario.setText("");
+			return;
+		}
+		if( !user.equals("root") || !pass.equals("admin") )
+		{
+			mostrarToast("El nombre de usuario y/o la contraseña no son correctos");
+			contraseña.setText("");
+			usuario.setText("");
+			return;
+		}
 	}
 	
+	@SuppressLint("ShowToast")
 	private void mostrarToast(CharSequence mensaje)
 	{
 		Context contexto = getApplicationContext();
