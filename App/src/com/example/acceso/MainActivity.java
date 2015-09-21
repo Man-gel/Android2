@@ -48,10 +48,16 @@ public class MainActivity extends Activity {
 	{
 		String user = usuario.getText().toString();
 		String pass = contraseña.getText().toString();
-		Context contexto = getApplicationContext();
-		CharSequence texto = "";
-		Toast toast = Toast.makeText(contexto, texto, 3);
-		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+		
+		
 	
+	}
+	
+	private void mostrarToast(CharSequence mensaje)
+	{
+		Context contexto = getApplicationContext();
+		Toast toast = Toast.makeText(contexto, mensaje, 3);
+		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+		toast.show();	
 	}
 }
