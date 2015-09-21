@@ -51,14 +51,21 @@ public class MainActivity extends Activity {
 			mostrarToast("Debe ingresar un nombre de usuario y una contraseña");
 			contraseña.setText("");
 			usuario.setText("");
+			usuario.requestFocus();
 			return;
 		}
-		if( !user.equals("root") || !pass.equals("admin") )
+		if( !( user.equals("root") && pass.equals("admin")) )
 		{
 			mostrarToast("El nombre de usuario y/o la contraseña no son correctos");
 			contraseña.setText("");
 			usuario.setText("");
-			return;
+			usuario.requestFocus();
+		}
+		else
+		{
+			contraseña.setText("");
+			usuario.setText("");
+			mostrarToast("Bienvenido "+user+"!");
 		}
 	}
 	
