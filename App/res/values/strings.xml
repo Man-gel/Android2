@@ -3,7 +3,7 @@
 
     <string name="app_name">acceso</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
     <string name="tv_contraseña">Contraseña</string>
     <string name="nom_boton">Enviar</string>
     <string name="tv_usuario">Usuario</string>
