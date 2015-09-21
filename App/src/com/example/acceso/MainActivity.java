@@ -8,22 +8,19 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	private EditText usuario;
 	private EditText contraseña;
-	private Button boton;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		usuario = (EditText)findViewById(R.id.et_usuario);
 		contraseña = (EditText)findViewById(R.id.et_password);
-		boton = (Button)findViewById(R.id.boton);
 	}
 
 	@Override
