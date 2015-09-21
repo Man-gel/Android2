@@ -1,12 +1,15 @@
 package com.example.acceso;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	private EditText usuario;
@@ -43,7 +46,12 @@ public class MainActivity extends Activity {
 	
 	public void validarUsuario(View v)
 	{
-		
+		String user = usuario.getText().toString();
+		String pass = contraseña.getText().toString();
+		Context contexto = getApplicationContext();
+		CharSequence texto = "";
+		Toast toast = Toast.makeText(contexto, texto, 3);
+		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
 	
 	}
 }
